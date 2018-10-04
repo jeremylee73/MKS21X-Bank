@@ -3,5 +3,11 @@ public class Driver {
     BankAccount a = new BankAccount(3, 200.0, "hello");
 
     System.out.println(a);
+
+    a.deposit(100.0);
+    System.out.println(a);
+
+    a.withdraw(50.0);
+    System.out.println(a);
   }
 }
