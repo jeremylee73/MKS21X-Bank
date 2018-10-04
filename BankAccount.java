@@ -36,4 +36,20 @@ public class BankAccount {
     balance -= amount;
     return true;
   }
+
+  private boolean authenticate(String password) {
+    if (this.password.equals(password)) {
+      return true;
+    }
+    return false;
+  }
+
+  public boolean transferTo(BankAccount other, double amount, String password) {
+    if (this.authenticate(password) && this.withdraw(amount) && other.deposit(amount)) {
+      System.out.println("Successfully transferred "+amount+" from "+this.accountID+" to "+other.accountID);
+      return true;
+    }
+    System.out.println("Failed to transfer "+amount+" from "+this.accountID+" to "+other.accountID);
+    return false;
+  }
 }
